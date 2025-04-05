@@ -1,0 +1,6 @@
+matplotlib
+networkx
+pandas
+openpyxl
+xlsxwriter
+cairosvg
