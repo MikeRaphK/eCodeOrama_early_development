@@ -1,4 +1,5 @@
 __pycache__/
-assets/
 venv/
 .vscode/
+sb3_assets/
+extracted/

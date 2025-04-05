@@ -26,12 +26,7 @@ if __name__ == "__main__":
     with open(os.path.join(output_dir, "project.json"), 'r', encoding='utf-8') as f:
         project_json = json.load(f)
 
-    # Parse JSON
+    # Parse JSON and launch GUI
     sprite_communication = parse_json(project_json)
-    for key, value in sprite_communication.items():
-        print(key)
-        print(f"\t{value}")
-        print()
-
     launch_gui(project_json, sprite_communication)
     

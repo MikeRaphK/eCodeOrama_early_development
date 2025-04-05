@@ -20,7 +20,7 @@ def build_codeOrama(sprite_dict : dict) -> None:
             event_names.add(event_to_string(event))
 
         # Get costume
-        sprite_icons.append(f"./assets/{value["costume"]}.png")
+        sprite_icons.append(f"./sb3_assets/{value["costume"]}.png")
 
     # Build the first row and clomuns
     df = pd.DataFrame(index=list(event_names), columns=sprite_names)
@@ -78,12 +78,12 @@ def build_codeOrama(sprite_dict : dict) -> None:
                 worksheet.write(row, col, cell_value, cell_format)
         worksheet.set_column(0, n_cols, 60)
 
-        # Convert all .svg files in ./extracted/ to .png files in ./assets/
-        Path("./assets").mkdir(exist_ok=True)
+        # Convert all .svg files in ./extracted/ to .png files in ./sb3_assets/
+        Path("./sb3_assets").mkdir(exist_ok=True)
         svg_paths = Path("./extracted").glob("*.svg")
         for svg_path in svg_paths:
             png_filename = svg_path.stem + ".png"  # Get base filename
-            png_path = Path("./assets") / png_filename
+            png_path = Path("./sb3_assets") / png_filename
             cairosvg.svg2png(url=str(svg_path), write_to=str(png_path))
 
         # Add icons
